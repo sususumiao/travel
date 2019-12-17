@@ -1,0 +1,73 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/stroke/index",
+			"style": {
+				"navigationBarTitleText": "行程"
+			}
+		},
+		{
+			"path": "pages/Tour_circle/index",
+			"style": {
+				"navigationBarTitleText": "旅圈"
+			}
+		},
+		{
+			"path": "pages/my/index",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		},
+		{
+			"path": "pages/login/index",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
+		},
+		{
+			"path": "pages/register/index",
+			"style": {
+				"navigationBarTitleText": "注册"
+			}
+		}
+	],
+	"tabBar":{
+		"color":"#333333",
+		"backgroundColor":"#fff",
+		"borderStyle":"black",
+		"list":[{
+			"pagePath":"pages/index/index",
+			"iconPath":"static/img/tabBar/index.png",
+			"selectedIconPath":"static/img/tabBar/index_active.png",
+			"text":"首页"
+		},{
+			"pagePath":"pages/stroke/index",
+			"iconPath":"static/img/tabBar/stroke.png",
+			"selectedIconPath":"static/img/tabBar/stroke_active.png",
+			"text":"行程"
+		},{
+			"pagePath":"pages/Tour_circle/index",
+			"iconPath":"static/img/tabBar/tour.png",
+			"selectedIconPath":"static/img/tabBar/tour_active.png",
+			"text":"旅圈"
+		},{
+			"pagePath":"pages/my/index",
+			"iconPath":"static/img/tabBar/my.png",
+			"selectedIconPath":"static/img/tabBar/my_active.png",
+			"text":"我的"
+		}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
+}
