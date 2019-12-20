@@ -6,7 +6,8 @@
 				<view class="uni-form-item uni-column item"><input class="uni-input" placeholder="请输入密码" /></view>
 				<view class="uni-form-item uni-column item">
 					<input class="uni-input" placeholder="请输入短信验证码" />
-					<text class="code">获取验证码</text>
+					<text class="code" @click="getCode" v-if="validCode">获取验证码</text>
+					<text v-if="!validCode" class="forbid">{{nums}}秒后重新发送</text>
 				</view>
 				<view class="uni-form-item uni-column item item2">
 					<checkbox-group @change="checkboxChange">
@@ -26,11 +27,33 @@
 export default {
 	data() {
 		return{
-			checked: false
+			timer:null,
+			checked: false,
+			validCode:true,
+			nums:60
 		}
 	},
 	methods: {
-		checkboxChange(e) {}
+		// 获取验证码
+		getCode(){
+			if(this.validCode){
+				this.validCode = false
+				var num = 59
+				this.timer = setInterval(()=>{
+					if(num>0){
+						this.nums = num--
+					}else{
+						clearInterval(this.timer);
+						this.nums = 60;
+						num = 60;
+						this.validCode = true;
+					}
+				},1000)
+			}
+		},
+		checkboxChange(e) {
+			console.log(e)
+		}
 	}
 };
 </script>
@@ -53,13 +76,17 @@ export default {
 	margin-top: 60rpx;
 	border: none;
 }
-.content form .item .code {
+.content form .item .code,
+.content form .item .forbid{
 	position: absolute;
 	top: 50%;
 	right: 0;
 	transform: translate(0, -50%);
 	color: #666666;
 	font-size: 22rpx;
+}
+.content form .item .forbid{
+	color: #f00;
 }
 .content .from form .item2 label{
 	font-size: 24rpx;
